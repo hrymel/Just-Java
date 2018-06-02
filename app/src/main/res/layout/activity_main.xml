@@ -23,6 +23,22 @@
         android:layout_margin="8dp"
         android:textSize="16sp"
         android:textColor="@android:color/black"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:textAllCaps="true"
+        android:id="@+id/quantity"
+        android:layout_margin="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/price_text_view"
+        android:layout_margin="8dp"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"/>
 
     <Button
         android:layout_width="wrap_content"
