@@ -19,6 +19,7 @@ import com.example.android.justjava.R;
  */
 public class MainActivity extends AppCompatActivity {
     int quantity = 2;
+    int pricePerCup = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +31,25 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        String priceMessage = "Total: $" + (quantity * 5) + "\nThank you!";
+        int price = calculatePrice();
+        String priceMessage = "Total: $" + price + "\nThank you!";
         displayMessage(priceMessage);
+    }
+
+    /**
+     * This method calculates the price of the order.
+     */
+    public int calculatePrice(){
+        int price = quantity * pricePerCup;
+        return price;
     }
 
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantity(int numberofCoffees) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText("" + numberofCoffees);
     }
 
     /**
@@ -56,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void increment(View view) {
         quantity++;
-        display(quantity);
+        displayQuantity(quantity);
 
     }
 
@@ -66,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void decrement(View view) {
         quantity--;
-        display(quantity);
+        displayQuantity(quantity);
     }
 
     /**
