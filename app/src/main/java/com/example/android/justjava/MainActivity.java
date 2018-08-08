@@ -1,6 +1,3 @@
-/** in the project's AndroidManifest.xml file.
-        **/
-
 package com.example.android.justjava;
 
 
@@ -40,8 +37,7 @@ public class MainActivity extends AppCompatActivity {
      * This method calculates the price of the order.
      */
     public int calculatePrice(){
-        int price = quantity * pricePerCup;
-        return price;
+        return quantity * pricePerCup;
     }
 
     /**
