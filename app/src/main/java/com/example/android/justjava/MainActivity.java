@@ -5,6 +5,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import java.text.NumberFormat;
 
@@ -28,8 +29,12 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        CheckBox whippedCreamCheckbox = findViewById(R.id.whipped_cream_checkbox);
+        boolean hasWhippedCream = whippedCreamCheckbox.isChecked();
+        CheckBox chocolateCheckbox = findViewById(R.id.chocolate_checkbox);
+        boolean hasChocolate = chocolateCheckbox.isChecked();
         int price = calculatePrice();
-        String priceMessage = createOrderSummary(price);
+        String priceMessage = createOrderSummary(price, hasWhippedCream, hasChocolate);
         displayMessage(priceMessage);
     }
 
@@ -43,8 +48,12 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Method creates the string summaries of the order
      */
-    public String createOrderSummary(int price){
-        String priceMessage = "Name: Kaptain Kunal" + "\nQuantity: " + quantity + "\nTotal: $" + price + "\nThank you!";
+    public String createOrderSummary(int price, boolean hasWhippedCream, boolean hasChocolate){
+        String priceMessage = "Name: Kaptain Kunal" +
+                "\nAdd whipped cream? " + hasWhippedCream +
+                "\nAdd chocolate? " + hasChocolate +
+                "\nQuantity: " + quantity +
+                "\nTotal: $" + price + "\nThank you!";
         return priceMessage;
     }
 
@@ -84,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
         orderSummaryTextView.setText(message);
 
     }
+
+
 }
 
 
